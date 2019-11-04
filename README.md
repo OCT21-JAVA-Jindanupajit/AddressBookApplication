@@ -1,4 +1,4 @@
-# Create an address book class with validation in the setters
+## Create an address book class with validation in the setters
 
 
 An address book contains the following fields: name, address, city, state, zip, phone, email.
@@ -11,32 +11,32 @@ To validate the email address and phone we're going to use something called regu
 
 You will also need ot import the following:
 
-  import java.util.regex.Matcher;
-  import java.util.regex.Pattern;
-  private boolean isEmailValid(String email){  
-          boolean isValid = false;  
-
-          String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";  
-          CharSequence inputStr = email;  
-          //Make the comparison case-insensitive.  
-          Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
-          Matcher matcher = pattern.matcher(inputStr);  
-          if(matcher.matches()){  
-              isValid = true;  
+      import java.util.regex.Matcher;
+      import java.util.regex.Pattern;
+      private boolean isEmailValid(String email){  
+              boolean isValid = false;  
+    
+              String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";  
+              CharSequence inputStr = email;  
+              //Make the comparison case-insensitive.  
+              Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
+              Matcher matcher = pattern.matcher(inputStr);  
+              if(matcher.matches()){  
+                  isValid = true;  
+              }  
+              return isValid;  
+          } 
+    
+          private boolean isPhoneNumberValid(String phoneNumber){  
+              boolean isValid = false;  
+    
+              String expression = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";  
+              CharSequence inputStr = phoneNumber;  
+              Pattern pattern = Pattern.compile(expression);  
+              Matcher matcher = pattern.matcher(inputStr);  
+              if(matcher.matches()){  
+                  isValid = true;  
+              }  
+              return isValid;  
           }  
-          return isValid;  
-      } 
-
-      private boolean isPhoneNumberValid(String phoneNumber){  
-          boolean isValid = false;  
-
-          String expression = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$";  
-          CharSequence inputStr = phoneNumber;  
-          Pattern pattern = Pattern.compile(expression);  
-          Matcher matcher = pattern.matcher(inputStr);  
-          if(matcher.matches()){  
-              isValid = true;  
-          }  
-          return isValid;  
-      }  
- 
+     
